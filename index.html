@@ -1,0 +1,53 @@
+import { Component } from '@angular/core';
+import { Product } from './product';
+
+@Component({
+  selector: 'app-product-list',
+  template: `
+    <div class="p-grid">
+      <div *ngFor="let product of products" class="p-col-12 p-md-4 p-lg-3">
+        <p-card [header]="product.name" [subheader]="product.category">
+          <img src="{{product.image}}" alt="{{product.name}}" class="p-card-image">
+          <div class="p-card-body">
+            <p class="p-card-description">{{product.description}}</p>
+            <p class="p-card-text">Price: ${{product.price | number:'1.2-2'}}</p>
+          </div>
+          <p-button label="Add to Cart" class="p-button-success"></p-button>
+        </p-card>
+      </div>
+    </div>
+  `,
+  styleUrls: ['./product-list.component.css']
+})
+export class ProductListComponent {
+  products: Product[] = [
+    {
+      name: 'Product 1',
+      category: 'Category 1',
+      description: 'Description for product 1',
+      image: 'assets/images/product1.jpg',
+      price: 19.99
+    },
+    {
+      name: 'Product 2',
+      category: 'Category 2',
+      description: 'Description for product 2',
+      image: 'assets/images/product2.jpg',
+      price: 29.99
+    },
+    {
+      name: 'Product 3',
+      category: 'Category 3',
+      description: 'Description for product 3',
+      image: 'assets/images/product3.jpg',
+      price: 39.99
+    },
+    {
+      name: 'Product 4',
+      category: 'Category 4',
+      description: 'Description for product 4',
+      image: 'assets/images/product4.jpg',
+      price: 49.99
+    }
+  ];
+}
